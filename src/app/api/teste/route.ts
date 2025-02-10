@@ -2,11 +2,11 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { auth } from "@/auth";
 
 
-export default async function handler(
+export async function GET(
   req: NextApiRequest,
-  res: NextApiResponse<any>
+  res: NextApiResponse
 ) {
-    const session = session();
+    const session = await session();
 
     res.status(200).json(session?.user)
 }
