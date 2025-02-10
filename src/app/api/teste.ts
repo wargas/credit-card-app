@@ -6,7 +6,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-    const session = await session();
+    const session = await auth();
 
     res.status(200).json(session?.user)
 }
