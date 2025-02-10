@@ -1,8 +1,10 @@
+import { doLogin } from "@/app/(auth)/login/actions"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { cn } from "@/lib/utils"
+import Form from 'next/form'
 
 export function LoginForm({
   className,
@@ -12,7 +14,7 @@ export function LoginForm({
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card className="overflow-hidden">
         <CardContent className="grid p-0 md:grid-cols-2">
-          <form className="p-6 md:p-8">
+          <Form action={doLogin} className="p-6 md:p-8">
             <div className="flex flex-col gap-6">
               <div className="flex flex-col items-center text-center">
                 <h1 className="text-2xl font-bold">Bem vindo de volta</h1>
@@ -85,7 +87,7 @@ export function LoginForm({
                 </a>
               </div>
             </div>
-          </form>
+          </Form>
           <div className="relative hidden bg-muted md:block">
             <img
               src="https://kzmo4z58fm26aywt1c9u.lite.vusercontent.net/placeholder.svg"
